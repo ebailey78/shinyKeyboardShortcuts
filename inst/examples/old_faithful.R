@@ -4,149 +4,34 @@ library(shinyKeyboardShortcuts)
 # Define UI for application that draws a histogram
 ui <- fluidPage(
     tags$head(
-          tags$style(HTML("
-
-      key {
-        display: inline-block;
-        font-family: monospace;
-        font-weight: bold;
-        box-sizing: border-box;
-        border: solid #333 2px;
-        text-align: center;
-        min-width: 2em;
-        min-height: 2em;
-        padding: 0.5em;
-        margin: 0.25em;
-        background-color: #F6F6F6;
-        color: #333;
-        border-radius: 5px;
-        box-shadow: 0.25em 0.25em;
-      }
+        tags$script("
+          $(document).on('keydown', function(e) {
       
-      key.pressed {
-      
-        background-color: #7FDBFF;
-        box-shadow: 0 0;
-        transform: translate(0.25em, 0.25em);
-      }
-
-      shortcut {
-        display: block;
-        font-family: sans-serif;
-        font-weight: bold;
-        color: #333;
-      }
-      
-      shortcut.lg {
-        font-size: 30px;
-      }
-      
-      shortcut.sm {
-        font-size: 10px;
-      }
-           
-      shortcut.sm > key {
-        border: solid #333 1.25px;
-      }
-      
-      shortcut > description {
-      
-        font-size: 1.2em;
-      
-      }
-      
-      shortcut > description::before {
-        content: ":";
-        padding: 3px;
-      }
-      
-")),
-    tags$script("
-      $(document).on('keydown', function(e) {
-      
-        let key = e.originalEvent.key.toLowerCase();
+            let key = e.originalEvent.key.toLowerCase();
         
-        $('key').each(function() {
-          if($(this).data('key') == key) {
-            $(this).addClass('pressed');
-          }
-        });
+            $('key').each(function() {
+              if($(this).data('key') == key) {
+                $(this).addClass('pressed');
+              }
+            });
       
-      });
+          });
     
-      $(document).on('keyup', function(e) {
+          $(document).on('keyup', function(e) {
       
-        let key = e.originalEvent.key.toLowerCase();
+            let key = e.originalEvent.key.toLowerCase();
         
-        $('key').each(function() {
-          if($(this).data('key') == key) {
-            $(this).removeClass('pressed');
-          }
-        });
-      
-      });
-
-")  
+            $('key').each(function() {
+              if($(this).data('key') == key) {
+                $(this).removeClass('pressed');
+              }
+            })
+          });
+       ")  
     ),
     # Application title
     titlePanel("Old Faithful Geyser Data"),
-    tags$style(HTML("
-
-      key {
-        display: inline-block;
-        font-family: monospace;
-        font-weight: bold;
-        box-sizing: border-box;
-        border: solid #333 2px;
-        text-align: center;
-        min-width: 2em;
-        min-height: 2em;
-        padding: 0.5em;
-        margin: 0.25em;
-        background-color: #F6F6F6;
-        color: #333;
-        border-radius: 5px;
-        box-shadow: 0.25em 0.25em;
-      }
-      
-      key.pressed {
-      
-        background-color: #7FDBFF;
-        box-shadow: 0 0;
-        transform: translate(0.25em, 0.25em);
-      }
-
-      shortcut {
-        display: block;
-        font-family: sans-serif;
-        font-weight: bold;
-        color: #333;
-      }
-      
-      shortcut.lg {
-        font-size: 30px;
-      }
-      
-      shortcut.sm {
-        font-size: 10px;
-      }
-           
-      shortcut.sm > key {
-        border: solid #333 1.25px;
-      }
-      
-      shortcut > description {
-      
-        font-size: 1.2em;
-      
-      }
-      
-      shortcut > description::before {
-        content: ":";
-        padding: 3px;
-      }
-      
-")),
+    includeCSS("old_faithful.css"),
     tags$script("
       $(document).on('keydown', function(e) {
       
