@@ -1,0 +1,14 @@
+Package: shinyKeyboardShortcuts
+Title: Add keyboard shortcuts to a shinyapp
+Version: 0.0.1
+Authors@R: person("Eric", "Bailey", email = "eb11307@gmail.com", role = c("aut", "cre"))
+Description: Makes it easy to add keyboard shortcuts to a shiny app. These keyboard 
+  shortcuts can trigger reactive events in your shiny app just like an actionButton or
+  actionLink.
+Depends: R (>= 3.5.3)
+License: MIT
+Encoding: UTF-8
+LazyData: true
+Imports: 
+  shiny,
+  htmltools
