@@ -70,7 +70,7 @@ ui <- fluidPage(
         
         $('key').each(function() {
           if($(this).data('key') == key) {
-            $(this).addClass("pressed");
+            $(this).addClass('pressed');
           }
         });
       
@@ -82,7 +82,7 @@ ui <- fluidPage(
         
         $('key').each(function() {
           if($(this).data('key') == key) {
-            $(this).removeClass("pressed");
+            $(this).removeClass('pressed');
           }
         });
       
