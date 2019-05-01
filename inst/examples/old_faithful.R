@@ -6,7 +6,7 @@ ui <- fluidPage(
 
     # Application title
     titlePanel("Old Faithful Geyser Data"),
-    tags$style("
+    tags$style(HTML("
 
       key {
         display: inline-block;
@@ -62,7 +62,7 @@ ui <- fluidPage(
         padding: 3px;
       }
       
-"),
+")),
     tags$script("
       $(document).on('keydown', function(e) {
       
