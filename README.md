@@ -14,3 +14,7 @@ Run the example with:
 library(shinyKeyboardShortcuts)
 runExampleSKS("old_faithful")
 ```
+
+Live Example:
+
+http://45.55.47.171/sample-apps/old_faithful/
