@@ -69,15 +69,15 @@ ui <- fluidPage(
                         value = 30),
             HTML("
     <shortcut class = 'sm'>
-      <key data-key = 'control'>Ctrl</key>+<key data-key='alt'>Alt</key>+<key data-key = 'a'>A</key>
+      <key data-key = 'alt'>Alt</key>+<key data-key='shift'>Shift</key>+<key data-key = 'a'>A</key>
       <description>Increase Bin Size</description>
     </shortcut>
     <shortcut class = 'sm'>
-      <key data-key = 'control'>Ctrl</key>+<key data-key='alt'>Alt</key>+<key data-key = 'q'>Q</key>
+      <key data-key = 'alt'>Alt</key>+<key data-key='shift'>Shift</key>+<key data-key = 'q'>Q</key>
       <description>Decrease Bin Size</description>
     </shortcut>
     <shortcut class = 'sm'>
-      <key data-key = 'control'>Ctrl</key>+<key data-key='alt'>Alt</key>+<key data-key = 'r'>R</key>
+      <key data-key = 'alt'>Alt</key>+<key data-key='shift'>Shift</key>+<key data-key = 'r'>R</key>
       <description>Reset Bin Size</description>
     </shortcut>  
             "),
