@@ -13,7 +13,7 @@ ui <- fluidPage(
                         min = 1,
                         max = 50,
                         value = 30),
-            shortcut_legend('Alt', 'Shift', "A", description = "Decrease Number of Bins", size = 'sm'),
+            shortcut_legend('Alt', 'Shift', "A", animated = FALSE, description = "Decrease Number of Bins", size = 'sm'),
             shortcut_legend("Alt", "Shift", "Q", description = "Increase Number of Bins", size = 'sm'),
             shortcut_legend("Alt", "Shift", "R", description = "Reset Number of Bins", size = 'sm'),
             keyboardShortcut('bins_down', key = 'a', alt = TRUE, shift = TRUE),

@@ -1,3 +1,8 @@
+#'Legend Keys
+#'
+#'Produce html for keyboard keys
+#'
+#'@export
 keys <- (function() {
 
   make_key_function <- function(key, icon = NULL) {
@@ -70,6 +75,15 @@ keys <- (function() {
 })()
 
 
+#'Create a Shortcut Legend Entry
+#'
+#'This function allows you to add a description of a keyboard shortcut to your app.
+#'
+#'@param animated Should the legend be animated?
+#'@param description What does the shortcut do?
+#'@param size The size of the shortcut `lg` for large, `sm` for small, or missing for regular
+#'@param \dots The keys that should be pressed to activate the shortcut
+#'
 #'@export
 shortcut_legend <- function(..., animated = TRUE, description, size = NULL) {
 
@@ -79,9 +93,18 @@ shortcut_legend <- function(..., animated = TRUE, description, size = NULL) {
 
   sc_class = c()
 
-  keys <- lapply(list(...), function(x) {
-    keys[[x]](animated = animated)
+  x <- list(...)
+
+  keys <- lapply(seq(length(x)), function(i) {
+    z <- keys[[x[[i]]]](animated = animated)
+    if(i < length(x)) {
+      return(tagList(z, " + "))
+    } else {
+      return(z)
+    }
   })
+
+  print(keys)
 
   if(!is.null(size)) {
     if(size %in% c('lg', 'sm')) {
