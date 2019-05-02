@@ -40,8 +40,11 @@ keys <- (function() {
         }
       }
 
-      structure(list(name = 'key', attribs = attr, children = l),
-                class = "shiny.tag")
+      htmltools::attachDependencies(
+        structure(list(name = 'key', attribs = attr, children = l),
+                  class = "shiny.tag"),
+        sKSdepend()
+      )
 
     }
 
@@ -120,10 +123,15 @@ shortcut_legend <- function(..., animated = TRUE, description, size = NULL) {
     sc_class <- NULL
   }
 
-  tag('shortcut', list(
-    class = sc_class,
-    tag('keys', keys),
-    tag('description', description)
-  ))
+  htmltools::attachDependencies(
+    tag('shortcut', list(
+      class = sc_class,
+      tag('keys', keys),
+      tag('description', description)
+    )),
+    sKSdepend()
+  )
+
+
 
 }

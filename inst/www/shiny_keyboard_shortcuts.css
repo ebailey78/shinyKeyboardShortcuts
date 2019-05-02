@@ -1,68 +1,65 @@
 /* Keyboard Key CSS */
 
-	  shortcut {
-        display: table-row;
-        font-family: sans-serif;
-        font-weight: bold;
-        color: #333;
-      }
+shortcut {
+  display: table-row;
+  font-family: sans-serif;
+  font-weight: bold;
+  color: #333;
+}
 
-      shortcut.lg {
-        font-size: 30px;
-      }
+shortcut.lg {
+  font-size: 30px;
+}
 
-      shortcut.sm {
-        font-size: 10px;
-      }
+shortcut.sm {
+  font-size: 10px;
+}
 
-      shortcut.sm  key {
-        border: solid #333 1.25px;
-      }
+shortcut.sm  key {
+  border: solid #333 1.25px;
+}
 
-	  keys {
-		display: table-cell;
-		white-space: nowrap;
-	  }
+keys {
+	display: table-cell;
+	white-space: nowrap;
+}
 
-	  keys::after {
-        font-family: sans-serif;
-        font-weight: bold;
-        color: #333;
-		padding: 3px;
-		content: ":";
-	  }
+keys::after {
+  font-family: sans-serif;
+  font-weight: bold;
+  color: #333;
+  padding: 3px;
+  content: ":";
+  font-size: 2em;
+}
 
-      key {
-        display: inline-block;
-        font-family: monospace;
-        font-weight: bold;
-        box-sizing: border-box;
-        border: solid #333 2px;
-        text-align: center;
-        min-width: 2.5em;
-        min-height: 2em;
-        padding: 0.5em;
-        margin: 0.25em;
-        background-color: #F6F6F6;
-        color: #333;
-        border-radius: 5px;
-        box-shadow: 0.15em 0.15em;
-      }
+key {
+  display: inline-block;
+  font-family: monospace;
+  font-weight: bold;
+  box-sizing: border-box;
+  border: solid #333 2px;
+  text-align: center;
+  min-width: 2.5em;
+  min-height: 2em;
+  padding: 0.5em;
+  margin: 0.25em;
+  background-color: #F6F6F6;
+  color: #333;
+  border-radius: 5px;
+  box-shadow: 0.15em 0.15em;
+}
 
-      key.pressed {
+key.pressed {
+  background-color: #7FDBFF;
+  box-shadow: 0 0;
+  transform: translate(0.15em, 0.15em);
+}
 
-        background-color: #7FDBFF;
-        box-shadow: 0 0;
-        transform: translate(0.15em, 0.15em);
-      }
-
-      shortcut > description {
-
-        font-size: 1.2em;
-        vertical-align: middle;
-        line-height: 1em;
-      	display: table-cell;
-		    min-height: 2em;
-        margin: 0.25em;
-
-	  }
+shortcut > description {
+  font-size: 1.2em;
+  vertical-align: middle;
+  line-height: 1em;
+	display: table-cell;
+  min-height: 2em;
+}

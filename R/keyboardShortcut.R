@@ -24,7 +24,7 @@ keyboardShortcut <- function(inputId, key, ctrl = FALSE, alt = FALSE, shift = FA
 
   htmltools::attachDependencies(
     tags$input(type = 'hidden', class = 'shiny-keyboard-shortcut', id = inputId, `data-key` = key, `data-ctrl` = ctrl, `data-alt` = alt, `data-shift` = shift, `data-description` = description),
-    sKSdepend
+    sKSdepend()
   )
 
 }
