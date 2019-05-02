@@ -8,8 +8,9 @@
 #' @param ctrl Does the Ctrl button have to be pressed?
 #' @param alt Does the Alt button have to be pressed?
 #' @param shift Does the shift button have to be pressed?
+#' @param description A description of what the shortcut does to include in the legend
 #' @export
-keyboardShortcut <- function(inputId, key, ctrl = FALSE, alt = FALSE, shift = FALSE) {
+keyboardShortcut <- function(inputId, key, ctrl = FALSE, alt = FALSE, shift = FALSE, description = NULL) {
 
   if(missing(key)) {
     stop("You must provide a `key`.", call. = FALSE)
@@ -22,8 +23,8 @@ keyboardShortcut <- function(inputId, key, ctrl = FALSE, alt = FALSE, shift = FA
   }
 
   htmltools::attachDependencies(
-    tags$input(type = 'hidden', class = 'shiny-keyboard-shortcut', id = inputId, `data-key` = key, `data-ctrl` = ctrl, `data-alt` = alt, `data-shift` = shift),
-    htmltools::htmlDependency(name = 'shiny-keyboard-shortcut', version = "1.0", src = system.file('www', package = 'shinyKeyboardShortcuts'), script = 'shiny_keyboard_shortcuts.js')
+    tags$input(type = 'hidden', class = 'shiny-keyboard-shortcut', id = inputId, `data-key` = key, `data-ctrl` = ctrl, `data-alt` = alt, `data-shift` = shift, `data-description` = description),
+    sKSdepend
   )
 
 }

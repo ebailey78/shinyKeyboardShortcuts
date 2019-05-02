@@ -1,3 +1,5 @@
+(function() {
+
   var keyboardShortcutInputBinding = new Shiny.InputBinding();
   $.extend(keyboardShortcutInputBinding, {
     find: function find(scope) {
@@ -9,9 +11,6 @@
     setValue: function setValue(el, value) {
       $(el).data('val', value);
     },
-//    getType: function getType(el) {
-//      return 'shiny.keyboard.shortcut';
-//    },
     subscribe: function subscribe(el, callback) {
       $(document).on('keydown.shiny-keyboard-shortcut', function(e) {
         let $el = $(el);
@@ -36,3 +35,29 @@
     }
   });
   Shiny.inputBindings.register(keyboardShortcutInputBinding, 'shiny.keyboardShortcutInput');
+
+  $(document).on('keydown', function(e) {
+
+    let key = e.originalEvent.key.toLowerCase();
+
+    $('key.animated').each(function() {
+      if($(this).data('key') == key) {
+        $(this).addClass('pressed');
+      }
+    });
+
+  });
+
+  $(document).on('keyup', function(e) {
+
+    let key = e.originalEvent.key.toLowerCase();
+
+    $('key.animated').each(function() {
+      if($(this).data('key') == key) {
+        $(this).removeClass('pressed');
+      }
+    });
+
+  });
+
+})();

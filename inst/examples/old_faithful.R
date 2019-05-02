@@ -3,62 +3,8 @@ library(shinyKeyboardShortcuts)
 
 # Define UI for application that draws a histogram
 ui <- fluidPage(
-    tags$head(
-        tags$script("
-          $(document).on('keydown', function(e) {
-      
-            let key = e.originalEvent.key.toLowerCase();
-        
-            $('key').each(function() {
-              if($(this).data('key') == key) {
-                $(this).addClass('pressed');
-              }
-            });
-      
-          });
-    
-          $(document).on('keyup', function(e) {
-      
-            let key = e.originalEvent.key.toLowerCase();
-        
-            $('key').each(function() {
-              if($(this).data('key') == key) {
-                $(this).removeClass('pressed');
-              }
-            })
-          });
-       ")  
-    ),
     # Application title
     titlePanel("Old Faithful Geyser Data"),
-    includeCSS("old_faithful.css"),
-    tags$script("
-      $(document).on('keydown', function(e) {
-      
-        let key = e.originalEvent.key.toLowerCase();
-        
-        $('key').each(function() {
-          if($(this).data('key') == key) {
-            $(this).addClass('pressed');
-          }
-        });
-      
-      });
-    
-      $(document).on('keyup', function(e) {
-      
-        let key = e.originalEvent.key.toLowerCase();
-        
-        $('key').each(function() {
-          if($(this).data('key') == key) {
-            $(this).removeClass('pressed');
-          }
-        });
-      
-      });
-
-"),
-
     # Sidebar with a slider input for number of bins
     sidebarLayout(
         sidebarPanel(
@@ -67,20 +13,9 @@ ui <- fluidPage(
                         min = 1,
                         max = 50,
                         value = 30),
-            HTML("
-    <shortcut class = 'sm'>
-      <key data-key = 'alt'>Alt</key>+<key data-key='shift'>Shift</key>+<key data-key = 'a'>A</key>
-      <description>Increase Bin Size</description>
-    </shortcut>
-    <shortcut class = 'sm'>
-      <key data-key = 'alt'>Alt</key>+<key data-key='shift'>Shift</key>+<key data-key = 'q'>Q</key>
-      <description>Decrease Bin Size</description>
-    </shortcut>
-    <shortcut class = 'sm'>
-      <key data-key = 'alt'>Alt</key>+<key data-key='shift'>Shift</key>+<key data-key = 'r'>R</key>
-      <description>Reset Bin Size</description>
-    </shortcut>  
-            "),
+            shortcut_legend('Alt', 'Shift', "A", description = "Decrease Number of Bins", size = 'sm'),
+            shortcut_legend("Alt", "Shift", "Q", description = "Increase Number of Bins", size = 'sm'),
+            shortcut_legend("Alt", "Shift", "R", description = "Reset Number of Bins", size = 'sm'),
             keyboardShortcut('bins_down', key = 'a', alt = TRUE, shift = TRUE),
             keyboardShortcut('bins_up', key = 'q', alt = TRUE, shift = TRUE),
             keyboardShortcut('reset_bins', key = 'r', alt = TRUE, shift = TRUE)
